@@ -1,0 +1,36 @@
+{
+  "AWSEDockerrunVersion": 2,
+  "containerDefinitions": [
+    {
+      "name": "client",
+      "image": "aswilson444/multi-client",
+      "hostname": "client",
+      "essential": false
+    },
+    {
+      "name": "nginx",
+      "image": "aswilson444/multi-nginx",
+      "hostname": "nginx",
+      "essential": true,
+      "portMappings": [
+        {
+          "hostPort": 80,
+          "containerPort": 80
+        }
+      ],
+      "links": ["client", "server"]
+    },
+    {
+      "name": "server",
+      "image": "aswilson444/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
+      "name": "worker",
+      "image": "aswilson444/multi-worker",
+      "hostname": "worker",
+      "essential": false
+    }
+  ]
+}
