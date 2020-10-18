@@ -8,6 +8,12 @@
       "essential": false
     },
     {
+      "name": "server",
+      "image": "aswilson444/multi-server",
+      "hostname": "api",
+      "essential": false
+    },
+    {
       "name": "nginx",
       "image": "aswilson444/multi-nginx",
       "hostname": "nginx",
@@ -19,12 +25,6 @@
         }
       ],
       "links": ["client", "server"]
-    },
-    {
-      "name": "server",
-      "image": "aswilson444/multi-server",
-      "hostname": "api",
-      "essential": false
     },
     {
       "name": "worker",
